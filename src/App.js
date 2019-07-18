@@ -2,10 +2,11 @@ import React from 'react'
 import './App.css'
 
 import useCustomerOrder from './hooks/useCustomerOrder'
+import ProductCard from './components/ProductCard'
+import Checkout from './components/Checkout'
 
 function App() {
-  const [{ order, isLoading, isError }] = useCustomerOrder()
-  console.log(order)
+  const [{ products, user, cart, isLoading, isError }] = useCustomerOrder()
   return (
     <main>
       <header className="header__title">goCart</header>
@@ -16,12 +17,16 @@ function App() {
               : (
                  isLoading
                   ? 'loading...'
-                  : 'data loaded'
+                : (
+                  <ul style={{listStyle: 'none'}}>
+                    {products.map(product => <ProductCard {...product} key={product.product_id} />)}
+                  </ul>
+                )
               )
           }
         </section>
         <section className="cart__checkout">
-          checkout
+          <Checkout cart={cart}/>
         </section>
       </section>
       <footer className="footer__main">Links</footer>
