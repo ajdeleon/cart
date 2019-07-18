@@ -19,6 +19,24 @@
   border: 1px solid black;
 }
 
+.product-card__main {
+  display: flex;
+}
+
+.product-card__description {
+}
+
+.product-card__checkout {
+  margin-left: auto;
+}
+
+.product-card__image {
+}
+
+.product-card__price--discounted {
+  font-color: #fff;
+}
+
 .cart__checkout {
   border: 1px solid black;
 }
